@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Sprint 1</title>
+</head>
+
+<body>
+    <script>
+
+
+//---------------------------------- Task 1 ----------------------------------//
+
+function getModifiedArray(array) {
+   let arr = array.slice()
+    arr[0] = "Start";
+    arr[arr.length-1] = 'End'
+    return arr;
+}
+
+//---------------------------------- Task 2 ----------------------------------//
+
+function combineArray(arr1, arr2) {
+    let arr3 = arr1.concat(arr2);
+    let arr4 = [];
+    
+    arr3.map(function (i) { 
+        if (typeof i == 'number'){
+            arr4.push(i);
+        }
+    });
+    
+    return arr4;
+}
+
+//---------------------------------- Task 3 ----------------------------------//
+
+
+function longestLogin(loginList) {
+   const reducer = (previousValue, currentValue) => (previousValue.length > currentValue.length) ? previousValue : currentValue;
+   return loginList.reduce(reducer);
+}
+
+
+//---------------------------------- Task 4 ----------------------------------//
+
+
+function factorial(n) {
+    if (n === 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+function processArray(arr, factorial) {
+    let result = arr.map(x => factorial(x));
+    return result;
+}
+
+//---------------------------------- Task 5 ----------------------------------//
+
+function checkAdult(age) {
+    if (age === undefined){
+        console.log("Error Please, enter your age")
+    } else if (age <= 0 ) {
+        console.log("Error Please, enter positive number");
+    } else if (typeof age != 'number') {
+        console.log("Error Please, enter number");
+    } else if (!Number.isInteger(age)) {
+        console.log("Error Please, enter Integer number"); 
+    } else if (age < 18) {
+       console.log("Error Access denied - you are too young!")
+    } else {
+        console.log("Access allowed");
+    }
+          
+    console.log("Age verification complete");
+}
+
+//---------------------------------- Task 6 ----------------------------------//
+
+
+const accountPatients = (bedsCount) => {
+    
+    const initialbedsCount = bedsCount
+ return [
+    () => {
+        if (bedsCount - 1 < 0) {
+            console.log(`Can not admit a patient, no beds available`)
+            return
+        } 
+        bedsCount--
+        console.log(`A patient was admitted, ${bedsCount} beds are available`)
+    },
+    () => {
+        if(bedsCount === initialbedsCount) {
+            console.log(`There are no patients to discharge`)
+            return
+        }
+        console.log(`A patient was discharged, ${++bedsCount} beds are available`)
+    }
+];   
+}
+    </script>
+</body>
+
+</html>
