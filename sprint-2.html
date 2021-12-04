@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprint 2</title>
+</head>
+
+<body>
+    <script>
+        const filterNums = (arg, num, choise) => {
+    let greaterNumber;
+    let lessNumber;
+    let arrOfIntegerNumbers;
+    
+    if (choise === 'greater' || choise === undefined && num !== undefined) {
+        greaterNumber = arg.filter(x => x > num) ;
+    } else if (choise === 'less') {
+        lessNumber = arg.filter(x => x < num);     
+    } else if (num === undefined) {
+        arrOfIntegerNumbers = arg.filter(x => x > 0);
+    }
+    
+    return greaterNumber ||  lessNumber || arrOfIntegerNumbers;
+};
+
+
+//--------------------------------------
+
+const howMuchSec = (seconds = 0, minutes = 0, hours = 0, days = 0) => {
+    return seconds + (minutes*60) + (hours*60*60) + (days*24*60*60);
+}
+
+
+//--------------------------------------
+
+
+
+const maxInterv = (...args) => {
+	var max = 0;
+    var temp;
+	for (var i = 0; i < args.length - 1; i++)
+      {
+		temp = Math.abs(args[i] - args[i + 1]);
+		max = Math.max(max, temp);
+	  }
+	return max;
+}
+
+//--------------------------------------
+
+
+const sumOfLen = (...args) => {
+            let arrInString = args.join('').trim();
+            let numberOfCarachters = 0;
+
+            for (let i of arrInString) {
+                numberOfCarachters++
+            }
+            return numberOfCarachters;
+        }
+
+//--------------------------------------
+
+
+const combineFunctions = (...args) => {
+ 
+ return (x) => args.reduce((compose, fn) => {
+     return fn(compose)
+ }, x)
+}
+
+	
+console.log(combineFunctions(x => x + x, x => x - 1, x => x !== 0)(5));
+
+// negate = function(x){ return -x; };
+
+// halve = function(x){ return x / 2; };
+
+// square = function(x){ return x * x; };
+
+// double = function(x){ return 2 * x; };
+
+// combineFunctions(negate, halve, square) should return a function
+
+// square(halve(negate(x)))
+
+//--------------------------------------
+
+
+const getLanguages = (students, funCon) => {
+    return students.reduce((result, element) => {
+        if (!funCon) {
+            return [...result, ...element.languages];
+        }
+        if (funCon(element)) {
+            return [...result, ...element.languages];
+        }
+        return result;
+    }, []);
+ };
+
+ console.log(getLanguages(students, student => student.age < 21));
+
+    </script>
+</body>
+
+</html>
