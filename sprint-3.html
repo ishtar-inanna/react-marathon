@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprint 3</title>
+</head>
+
+<body>
+
+    <script>
+        // let obj = { num: 2 };
+        // let student = [1,2,4,7,13]
+
+        // function add(...args) {
+        //     return args.reduce((preVal, currVal) => {
+        //         return this.num + preVal + currVal;
+        //     }, 0)
+        // }
+
+        // // хотя синтаксис этой функции практически полностью идентичен функции apply(), 
+        // // фундаментальное различие между ними заключается в том, 
+        // // что функция call() принимает список аргументов, в то время, 
+        // // как функция apply() - одиночный массив аргументов.
+
+        // console.log(add.apply(obj, student));
+        // console.log(add.call(obj, ...student));
+        // let func = add.bind(obj, ...student);
+        // console.log(func());
+
+        //-------------------------------------------------------------
+        // const getMin = (arr) => {
+        //     return Math.min.apply(null, arr);
+        // }
+
+
+        // function findMinNumber(x) {
+        //     return x.reduce((previousValue, currentValue) => {
+        //         if (previousValue > currentValue) {
+        //             return currentValue
+        //         } else {
+        //             return previousValue
+        //         }
+        //     }, x[0])
+        // }
+
+        // console.log(getMin([12, 6, 22, 13, 7]));
+        // console.log(getMin([15, 0.26, 12, 8, 44, 22]));
+
+        //-------------------------------------------------------------
+        // Напишите функцию mapCreator(keys, values), которая принимает два массива одинаковой длины. 
+        // Используя эти массивы, функция должна создать объект типа Map, 
+        // ключами которого являются значения из первого массива keys, 
+        // а значениями Map - значения из второго массива values. 
+        // Причем значениями элементов map могут быть только строковые значения. 
+        // Функция возвращает этот объект Map.
+
+        //         function mapCreator(keys, values) {
+        //             let arrOfKeysAnValues = new Map([]);
+        //             for(let i= 0; i < values.length; i++){
+        //                     if(typeof values[i] === 'string') {
+        //                         arrOfKeysAnValues.set(keys[i], values[i])
+        //                     } else {
+        //                         continue;
+        //                     }
+        //             }
+        //             return arrOfKeysAnValues
+        //         }
+
+        // const map2 = mapCreator([1, 2, 3, 4, 5, 6, 7],
+        // ["Lviv", 23, "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", true]);
+        // console.log(map2.size);
+        // console.log(map2);
+
+        //-------------------------------------------------------------
+
+        // const Checker = require('./Checker.js');
+
+        // class Movie {
+        //     constructor(name, category, startShow) {
+        //         this.name = name;
+        //         this.category = category;
+        //         this.startShow = startShow;
+        //     }
+        //     watchMovie() {
+        //         return `I watch the movie ${this.name}!`
+        //     }
+        // }
+
+        // const movie1 = new Movie("Titanic", "drama", 1997)
+
+        // const movie2 = new Movie("Troya", "historical", 2004)
+
+        //-------------------------------------------------------------
+
+        // class Student {
+
+
+        //     constructor(fullName, direction) {
+        //         this._fullName = fullName;
+        //         this._direction = direction;
+        //     }
+
+        //     showFullName() {
+        //         return this._fullName;
+        //     }
+        //     nameIncludes(data) {
+        //         if (this._fullName.includes(data)) {
+        //             return true;
+        //         }  else {
+        //             return false;
+        //         }
+        //     }
+        //     static studentBuilder() {
+        //         return new Student('Ihor Kohut', 'qc')
+        //     }
+        //     get direction() {
+        //         return this._direction
+        //     }
+        //     set direction(value) {
+        //         this._direction = value
+        //     }
+        // }
+
+        // const stud1 = new Student('Ivan Petrenko', 'web');
+        // const stud2 = new Student('Sergiy Koval', 'python');
+        // const stud3 = Student.studentBuilder();
+
+        // stud3.direction = 'programer'
+        // console.log(stud3.direction);
+
+        //-------------------------------------------------------------
+
+        // const product = function () {
+        //     return [].reduce.call(arguments, function (res, elem) {
+        //         return res * elem;
+        //     }, this.product);
+        // };
+
+        // const contextObj = {
+        //     product: 10
+        // }
+
+        // const getProduct = (a, b) => product.bind(contextObj, a, b, 2, 3)
+
+        //-------------------------------------------------------------
+        // Product constructor should provide a generation 
+        // of unique product id within the application 
+        // no matter how many products are created.
+
+        // Distributor can store information about products
+        //     in its products property and has an ability to add 
+        // and remove a product.
+
+        // addProduct adds a new property to products with name 
+        // of product id and value - product name.
+
+        // removeProduct removes a property with specified id from products
+
+
+        // class Distributor {
+        //     constructor() {
+        //         this.products = {};
+        //     }
+
+        //     addProduct(id, name) {
+        //         this.products[id] = name;
+        //         //add a property to products with name equal to product id and value equal to product name
+        //     }
+
+        //     removeProduct(id) {
+        //         delete this.products[id];
+        //         //remove a property from products with name equal to specified id
+        //     }
+        // }
+
+        // const localDistributor = new Distributor();
+
+        // class Some {
+        //     constructor(name){
+        //         this.name = name;
+        //         this.id = Symbol(name)
+        //     }
+        // }
+        // const some1 = new Some('bebebe');
+
+        // class MyProduct {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.id = Symbol(name)
+        //         //generate unique product id; define id and name fields
+        //     }
+
+        //     distribute(distributor) {
+        //         distributor.addProduct(this.id, this.name);
+        //     }
+        // }
+
+    </script>
+</body>
+
+</html>
